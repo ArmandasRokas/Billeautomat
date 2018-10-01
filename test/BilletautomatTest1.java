@@ -17,7 +17,7 @@ class BilletautomatTest {
     }
 
     /** 
-    * Test Case: 1 : 
+    * Test Case: TC1 
     * Beskrivelse: Få billet prisen
     * Result: Billet prisen er større end 0
     */
