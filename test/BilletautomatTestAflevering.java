@@ -5,7 +5,7 @@ class BilletautomatTestAflevering {
       Billetautomat billetautomat = new Billetautomat();
 
     /**
-     * Beskrivelse: Metoden tester, om der kan fås retur penge.
+     * Beskrivelse: Der testes, om der kan fås retur penge fra automaten.
      *              Det kræver, at balancen ikke er lige med nul
      *              for at få retur penge.
      * Forventet: Retur penge er lige med nuværende balance.
@@ -22,7 +22,6 @@ class BilletautomatTestAflevering {
         int balanceFoerReturPenge = billetautomat.getBalance();
 
         //Act
-
         int returPenge = billetautomat.returpenge();
 
         //Assert
