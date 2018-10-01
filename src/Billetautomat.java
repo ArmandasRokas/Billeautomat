@@ -89,6 +89,8 @@ public class Billetautomat {
 	}
 
 
+
+
 	public int getTotal() {
 		if (montørtilstand) {
 			return billetpris * antalBilletterSolgt;
