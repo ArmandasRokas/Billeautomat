@@ -22,7 +22,6 @@ class BilletautomatTest {
     }
 
     /** 
-    * Test Case: TC1 
     * Beskrivelse: Få billet prisen
     * Forventet: Billet prisen er større end 0
     */
