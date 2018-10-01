@@ -1,5 +1,7 @@
-import org.junit.jupiter.api.Test;
+// hej hej
 //hej
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BilletautomatTest {
