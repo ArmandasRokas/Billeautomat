@@ -9,20 +9,32 @@ class BilletautomatTest {
     //Instantier et Billetautomat object
     Billetautomat automat = new Billetautomat();
 
-    //Lille metode som overskueliggoer nogle af vores tests.
+    /*
+    *Metode for at købe flere biletter af gangen, der bruges til at køre køb igennem flere gange for at overskueliggøre tests
+    *
+    *@param antal
+    *   Antal billetter der skal købes
+    */
     public void koebBilletter(int antal){
         for (int i = 0; i < antal ; i++) {
             automat.udskrivBillet();
         }
     }
 
-    //Test hvorvidt billetprisen er større end 0
+    /** 
+    * Beskrivelse: Få billet prisen
+    * Forventet: Billet prisen er større end 0
+    */
     @Test
     void testGetBilletpris() {
         assertTrue(automat.getBilletpris()>0);
     }
 
-    //Forsoeg at indsaette 0 kroner. Automaten's getBalance skal returnere 0 kroner.
+    /** 
+    * Beskrivelse: Tester om balancen er nul kroner efter indsættelse af nul kroner.
+    * Forventet: Balancen er nul kroner.
+    */
+    
     @Test
     void indsaetNulKroner() {
         automat.indsætPenge(0);
