@@ -30,7 +30,11 @@ class BilletautomatTest {
         assertTrue(automat.getBilletpris()>0);
     }
 
-    //Forsoeg at indsaette 0 kroner. Automaten's getBalance skal returnere 0 kroner.
+    /** 
+    * Beskrivelse: Tester om balancen er nul kroner efter indsættelse af nul kroner.
+    * Forventet: Balancen er nul kroner.
+    */
+    
     @Test
     void indsaetNulKroner() {
         automat.indsætPenge(0);
