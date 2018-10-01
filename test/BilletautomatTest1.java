@@ -9,7 +9,12 @@ class BilletautomatTest {
     //Instantier et Billetautomat object
     Billetautomat automat = new Billetautomat();
 
-    //Lille metode som overskueliggoer nogle af vores tests.
+    /*
+    *Metode for at købe flere biletter af gangen, der bruges til at køre køb igennem flere gange for at overskueliggøre tests
+    *
+    *@param antal
+    *   Antal billetter der skal købes
+    */
     public void koebBilletter(int antal){
         for (int i = 0; i < antal ; i++) {
             automat.udskrivBillet();
