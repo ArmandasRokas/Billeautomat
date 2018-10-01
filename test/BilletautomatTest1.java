@@ -19,7 +19,7 @@ class BilletautomatTest {
     /** 
     * Test Case: TC1 
     * Beskrivelse: Få billet prisen
-    * Result: Billet prisen er større end 0
+    * Forventet: Billet prisen er større end 0
     */
     @Test
     void testGetBilletpris() {
