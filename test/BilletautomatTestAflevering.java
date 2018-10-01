@@ -30,7 +30,7 @@ class BilletautomatTestAflevering {
     }
       
      /**
-     * Beskrivelse: Der testes, om det kan ændres billet prisen i montør tilstand.
+     * Beskrivelse: Der testes, om der kan ændres billet prisen i montør tilstand.
      * Forventet: Billetprisen er ændret til en ny pris, som er større 20kr end tidligere pris i montør tilstand
      */
     @Test
