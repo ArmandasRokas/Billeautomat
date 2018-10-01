@@ -16,7 +16,11 @@ class BilletautomatTest {
         }
     }
 
-    //Test hvorvidt billetprisen er større end 0
+    /** 
+    * Test Case: 1 : 
+    * Beskrivelse: Få billet prisen
+    * Result: Billet prisen er større end 0
+    */
     @Test
     void testGetBilletpris() {
         assertTrue(automat.getBilletpris()>0);
