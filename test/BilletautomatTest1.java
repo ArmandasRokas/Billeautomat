@@ -2,8 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BilletautomatTest { //Tobias er lækker Kappa
-    //Test KNA
+class BilletautomatTest {
     //Nem adgang til password hvis det ændres i kildekoden til billetautomat skal vi kun ændre variablen et sted i vores tests.
     public String password = "1234";
 
