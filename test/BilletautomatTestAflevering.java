@@ -96,6 +96,7 @@ class BilletautomatTestAflevering {
     
     /**
      * @Author Tobias
+     *
      * Beskrivelse: Tester for indsættelse af 0 kroner.
      * Forventet: Automaten har 0 kroner.
      */
@@ -299,6 +300,65 @@ class BilletautomatTestAflevering {
         //Assert
         assertTrue(billetautomat.erMontør());
     }
+    
+    /* Test # (Forfatter: Kristian)
+    Tester om det er muligt at se total tjent som montør.
+    Forventet: Det er muligt at læse hvor meget der er solgt for.
+     */
+    @Test
+    public void testGetTotalSomMontør() {
+        automat.montørLogin("1234"); //Logger ind som montør
+        int forventetTotal = automat.getBilletpris() * automat.getAntalBilletterSolgt(); //SKAL OPDATERES NÅR GETTOTAL() BLIVER FIKSET
 
+        int returneretTotal = automat.getTotal();
+
+        assertEquals(forventetTotal, returneretTotal);
+    }
+
+    /* Test # (Forfatter: Kristian)
+    Beskrivelse: Tester om det er muligt at se total tjent når man ikke er montør.
+    Forventet: Det skal ikke være muligt at se hvor meget der er solgt for.
+     */
+    @Test
+    public void testGetTotalIkkeSomMontør() {
+        automat.montørLogin(""); //Sikrer man er logget ud som montør.
+        int forventetTotal = 0; //SKAL MULIGVIS OPDATERES NÅR GETTOTAL() BLIVER FIKSET
+
+        int returneretTotal = automat.getTotal();
+
+        assertEquals(forventetTotal, returneretTotal);
+    }
+
+    /* Test # (Forfatter: Kristian)
+    Beskrivelse: Tester om man kan sætte antal billetter solgt som montør.
+    Forventet: Antal billetter solgt skal ændres til input.
+     */
+    @Test
+    public void testSetAntalBilletterSolgtSomMontør() {
+        automat.montørLogin("1234"); //Logger ind som montør.
+        int forventetAntalSolgteBiletter = 4321;
+
+        automat.setAntalBilletterSolgt(forventetAntalSolgteBiletter);
+        int returneretAntalSolgteBilletter = automat.getAntalBilletterSolgt();
+
+        assertEquals(forventetAntalSolgteBiletter, returneretAntalSolgteBilletter);
+    }
+
+    /* Test # (Forfatter: Kristian)
+    Beskrivelse: Tester om man kan sætte antal billetter solgt når man ikke er montør.
+    Forventet: Antal billetter solgt skal forblive det samme.
+     */
+    @Test
+    public void testSetAntalBilletterSolgtIkkeSomMontør() {
+        automat.montørLogin(""); //Sikrer man er logget ud som montør.
+        int forventetAntalSolgteBiletter = automat.getAntalBilletterSolgt();
+        int ændringsInput = 9876;
+
+        automat.setAntalBilletterSolgt(ændringsInput);
+        automat.montørLogin("1234"); //Logger ind så man kan se antal billetter solgt.
+        int returneretAntalSolgteBilletter = automat.getAntalBilletterSolgt();
+
+        assertEquals(forventetAntalSolgteBiletter, returneretAntalSolgteBilletter);
+    }
 
 }
