@@ -62,7 +62,7 @@ class BilletautomatTestAflevering {
     @Test
     void getBilletpris() {
         //Arrange
-        int forventetBilletpris = 10  
+        int forventetBilletpris = 10;
         billetautomat.setBilletpris(forventetBilletpris);
 
         //Act
@@ -109,8 +109,8 @@ class BilletautomatTestAflevering {
         int automatsPenge = 0;
 
         /* Act */
-        automat.indsætPenge(0);
-        automatsPenge = automat.getBalance();
+        billetautomat.indsætPenge(0);
+        automatsPenge = billetautomat.getBalance();
 
         /* Assert */
         assertEquals(forventetPenge,automatsPenge);
@@ -129,8 +129,8 @@ class BilletautomatTestAflevering {
         int automatsPenge;
 
         /* Act */
-        automat.indsætPenge(indsætDetteBeløb);
-        automatsPenge = automat.getBalance();
+        billetautomat.indsætPenge(indsætDetteBeløb);
+        automatsPenge = billetautomat.getBalance();
 
         /* Assert */
         assertEquals(forventetPenge,automatsPenge);
@@ -150,8 +150,8 @@ class BilletautomatTestAflevering {
         int automatsPenge;
 
         /* Act */
-        automat.indsætPenge(indsætDetteBeløb);
-        automatsPenge = automat.getBalance();
+        billetautomat.indsætPenge(indsætDetteBeløb);
+        automatsPenge = billetautomat.getBalance();
 
         /* Assert */
         assertEquals(forventetPenge,automatsPenge);
@@ -168,10 +168,10 @@ class BilletautomatTestAflevering {
         // Password er sat som et field for nem ændring af adskillige tests.
 
         /* Act */
-        automat.montørLogin(password);
+        billetautomat.montørLogin(password);
 
         /* Assert */
-        assertTrue(automat.erMontør());
+        assertTrue(billetautomat.erMontør());
     }
 
 
@@ -185,10 +185,10 @@ class BilletautomatTestAflevering {
         /* Arrange */
 
         /* Act */
-        automat.montørLogin("abcd");
+        billetautomat.montørLogin("abcd");
 
         /* Assert */
-        assertFalse(automat.erMontør());
+        assertFalse(billetautomat.erMontør());
     }
 
 
@@ -200,18 +200,18 @@ class BilletautomatTestAflevering {
     @Test
     void nulstilAutomat_ErMontør_SolgteBilletter() {
         /* Arrange */
-        int indsætDetteBeløb = automat.getBilletpris()*3;
+        int indsætDetteBeløb = billetautomat.getBilletpris()*3;
         int forventetSolgteBilletter = 0;
 
         /* Act */
-        automat.indsætPenge(indsætDetteBeløb);
-        automat.udskrivBillet();
-        automat.udskrivBillet();
-        automat.montørLogin(password);
-        automat.nulstil();
+        billetautomat.indsætPenge(indsætDetteBeløb);
+        billetautomat.udskrivBillet();
+        billetautomat.udskrivBillet();
+        billetautomat.montørLogin(password);
+        billetautomat.nulstil();
 
         /* Assert */
-        assertEquals(forventetSolgteBilletter,automat.getAntalBilletterSolgt());
+        assertEquals(forventetSolgteBilletter,billetautomat.getAntalBilletterSolgt());
     }
 
     /** Test 11
@@ -222,18 +222,18 @@ class BilletautomatTestAflevering {
     @Test
     void nulstilAutomat_ErMontør_Omsætning() {
         /* Arrange */
-        int indsætDetteBeløb = automat.getBilletpris()*3;
+        int indsætDetteBeløb = billetautomat.getBilletpris()*3;
         int forventetOmsætning = 0;
 
         /* Act */
-        automat.indsætPenge(indsætDetteBeløb);
-        automat.udskrivBillet();
-        automat.udskrivBillet();
-        automat.montørLogin(password);
-        automat.nulstil();
+        billetautomat.indsætPenge(indsætDetteBeløb);
+        billetautomat.udskrivBillet();
+        billetautomat.udskrivBillet();
+        billetautomat.montørLogin(password);
+        billetautomat.nulstil();
 
         /* Assert */
-        assertEquals(forventetOmsætning,automat.getTotal());
+        assertEquals(forventetOmsætning,billetautomat.getTotal());
     }
 
 
@@ -245,16 +245,16 @@ class BilletautomatTestAflevering {
     @Test
     void nulstilAutomat_ErIkkeMontør_BilletterSolgt() {
         /* Arrange */
-        int indsætDetteBeløb = automat.getBilletpris()*3;
+        int indsætDetteBeløb = billetautomat.getBilletpris()*3;
         int forventetSolgteBilletter = 0;
         int solgteBilletter;
 
         /* Act */
-        automat.indsætPenge(indsætDetteBeløb);
-        automat.udskrivBillet();
-        automat.udskrivBillet();
-        automat.nulstil();
-        solgteBilletter = automat.getAntalBilletterSolgt();
+        billetautomat.indsætPenge(indsætDetteBeløb);
+        billetautomat.udskrivBillet();
+        billetautomat.udskrivBillet();
+        billetautomat.nulstil();
+        solgteBilletter = billetautomat.getAntalBilletterSolgt();
 
         /* Assert */
         assertEquals(forventetSolgteBilletter,solgteBilletter);
@@ -268,16 +268,16 @@ class BilletautomatTestAflevering {
     @Test
     void nulstilAutomat_ErIkkeMontør_Omsætning() {
         /* Arrange */
-        int indsætDetteBeløb = automat.getBilletpris()*3;
+        int indsætDetteBeløb = billetautomat.getBilletpris()*3;
         int forventetOmsætning = 0;
         int omsætning;
 
         /* Act */
-        automat.indsætPenge(indsætDetteBeløb);
-        automat.udskrivBillet();
-        automat.udskrivBillet();
-        automat.nulstil();
-        omsætning = automat.getTotal();
+        billetautomat.indsætPenge(indsætDetteBeløb);
+        billetautomat.udskrivBillet();
+        billetautomat.udskrivBillet();
+        billetautomat.nulstil();
+        omsætning = billetautomat.getTotal();
 
         /* Assert */
         assertEquals(forventetOmsætning,omsætning);
@@ -311,10 +311,10 @@ class BilletautomatTestAflevering {
      */
     @Test
     public void testGetTotalSomMontør() {
-        automat.montørLogin("1234"); //Logger ind som montør
-        int forventetTotal = automat.getBilletpris() * automat.getAntalBilletterSolgt(); //SKAL OPDATERES NÅR GETTOTAL() BLIVER FIKSET
+        billetautomat.montørLogin("1234"); //Logger ind som montør
+        int forventetTotal = billetautomat.getBilletpris() * billetautomat.getAntalBilletterSolgt(); //SKAL OPDATERES NÅR GETTOTAL() BLIVER FIKSET
 
-        int returneretTotal = automat.getTotal();
+        int returneretTotal = billetautomat.getTotal();
 
         assertEquals(forventetTotal, returneretTotal);
     }
@@ -327,10 +327,10 @@ class BilletautomatTestAflevering {
      */
     @Test
     public void testGetTotalIkkeSomMontør() {
-        automat.montørLogin(""); //Sikrer man er logget ud som montør.
+        billetautomat.montørLogin(""); //Sikrer man er logget ud som montør.
         int forventetTotal = 0; //SKAL MULIGVIS OPDATERES NÅR GETTOTAL() BLIVER FIKSET
 
-        int returneretTotal = automat.getTotal();
+        int returneretTotal = billetautomat.getTotal();
 
         assertEquals(forventetTotal, returneretTotal);
     }
@@ -343,11 +343,11 @@ class BilletautomatTestAflevering {
      */
     @Test
     public void testSetAntalBilletterSolgtSomMontør() {
-        automat.montørLogin("1234"); //Logger ind som montør.
+        billetautomat.montørLogin("1234"); //Logger ind som montør.
         int forventetAntalSolgteBiletter = 4321;
 
-        automat.setAntalBilletterSolgt(forventetAntalSolgteBiletter);
-        int returneretAntalSolgteBilletter = automat.getAntalBilletterSolgt();
+        billetautomat.setAntalBilletterSolgt(forventetAntalSolgteBiletter);
+        int returneretAntalSolgteBilletter = billetautomat.getAntalBilletterSolgt();
 
         assertEquals(forventetAntalSolgteBiletter, returneretAntalSolgteBilletter);
     }
@@ -360,13 +360,13 @@ class BilletautomatTestAflevering {
      */
     @Test
     public void testSetAntalBilletterSolgtIkkeSomMontør() {
-        automat.montørLogin(""); //Sikrer man er logget ud som montør.
-        int forventetAntalSolgteBiletter = automat.getAntalBilletterSolgt();
+        billetautomat.montørLogin(""); //Sikrer man er logget ud som montør.
+        int forventetAntalSolgteBiletter = billetautomat.getAntalBilletterSolgt();
         int ændringsInput = 9876;
 
-        automat.setAntalBilletterSolgt(ændringsInput);
-        automat.montørLogin("1234"); //Logger ind så man kan se antal billetter solgt.
-        int returneretAntalSolgteBilletter = automat.getAntalBilletterSolgt();
+        billetautomat.setAntalBilletterSolgt(ændringsInput);
+        billetautomat.montørLogin("1234"); //Logger ind så man kan se antal billetter solgt.
+        int returneretAntalSolgteBilletter = billetautomat.getAntalBilletterSolgt();
 
         assertEquals(forventetAntalSolgteBiletter, returneretAntalSolgteBilletter);
     }
