@@ -1,7 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 class BilletautomatTestAflevering {
-
+      public String password = "1234";
       Billetautomat billetautomat = new Billetautomat();
 
     /** Test 1
@@ -92,5 +92,183 @@ class BilletautomatTestAflevering {
         //Assert
         assertEquals(2, billetautomat.getAntalBilletterSolgt());
     }
+    
+    /**
+     * Beskrivelse: Tester for indsættelse af 0 kroner.
+     * Forventet: Automaten har 0 kroner.
+     */
+    @Test
+    void indsaetNulKroner_iAutomat() {
+        /* Arrange */
+        int forventetPenge = 0;
+        int automatsPenge = 0;
+
+        /* Act */
+        automat.indsætPenge(0);
+        automatsPenge = automat.getBalance();
+
+        /* Assert */
+        assertEquals(forventetPenge,automatsPenge);
+    }
+
+    /**
+     * Beskrivelse: Indsaetter Integer.MAX kroner og tjekker balance.
+     * Forventet: Balancen er lig med Integer.MAX kroner.
+     */
+    @Test
+    void insaetMaximumKroner_iAutomat(){
+        /* Arrange */
+        int indsætDetteBeløb = Integer.MAX_VALUE;
+        int forventetPenge = Integer.MAX_VALUE;
+        int automatsPenge;
+
+        /* Act */
+        automat.indsætPenge(indsætDetteBeløb);
+        automatsPenge = automat.getBalance();
+
+        /* Assert */
+        assertEquals(forventetPenge,automatsPenge);
+    }
+
+
+    /**
+     * Beskrivelse: Indsaetter Integer.MIN kroner og tjekker balance.
+     * Forventet: Balancen er lig med Integer.MIN kroner.
+     */
+    @Test
+    void indsætMinnimumKroner_iAutomat(){
+        /* Arrange */
+        int indsætDetteBeløb = Integer.MIN_VALUE;
+        int forventetPenge = Integer.MIN_VALUE;
+        int automatsPenge;
+
+        /* Act */
+        automat.indsætPenge(indsætDetteBeløb);
+        automatsPenge = automat.getBalance();
+
+        /* Assert */
+        assertEquals(forventetPenge,automatsPenge);
+    }
+
+    /**
+     * Beskrivelse: Tester montør login med korrekt password.
+     * Forventet: Montøren kan logge ind.
+     */
+    @Test
+    void montørLoggerInd_KorrektPassword() {
+        /* Arrange */
+        // Password er sat som et field for nem ændring af adskillige tests.
+
+        /* Act */
+        automat.montørLogin(password);
+
+        /* Assert */
+        assertTrue(automat.erMontør());
+    }
+
+
+    /**
+     * Beskrivelse: Tester montørlogin med forkert password.
+     * Forventet: Montøren kan ikke logge ind.
+     */
+    @Test
+    void montørLoggerInd_ForkertPassword() {
+        /* Arrange */
+
+        /* Act */
+        automat.montørLogin("abcd");
+
+        /* Assert */
+        assertFalse(automat.erMontør());
+    }
+
+
+    /**
+     * Beskrivelse: Tester den indloggede montør kan nulstille automaten efter der er købt billetter.
+     * Forventet: Der er solgt 0 billetter.
+     */
+    @Test
+    void nulstilAutomat_ErMontør_SolgteBilletter() {
+        /* Arrange */
+        int indsætDetteBeløb = automat.getBilletpris()*3;
+        int forventetSolgteBilletter = 0;
+
+        /* Act */
+        automat.indsætPenge(indsætDetteBeløb);
+        automat.udskrivBillet();
+        automat.udskrivBillet();
+        automat.montørLogin(password);
+        automat.nulstil();
+
+        /* Assert */
+        assertEquals(forventetSolgteBilletter,automat.getAntalBilletterSolgt());
+    }
+
+    /**
+     * Beskrivelse: Tester den indloggede montør kan nulstille automaten efter der er købt billetter.
+     * Forventet: Omsætningen er 0 kr.
+     */
+    @Test
+    void nulstilAutomat_ErMontør_Omsætning() {
+        /* Arrange */
+        int indsætDetteBeløb = automat.getBilletpris()*3;
+        int forventetOmsætning = 0;
+
+        /* Act */
+        automat.indsætPenge(indsætDetteBeløb);
+        automat.udskrivBillet();
+        automat.udskrivBillet();
+        automat.montørLogin(password);
+        automat.nulstil();
+
+        /* Assert */
+        assertEquals(forventetOmsætning,automat.getTotal());
+    }
+
+
+    /**
+     * Beskrivelse: Tester man ikke kan nulstille automaten som uathoriseret almen person. (Læs: ikke-montør).
+     * Forventet: Antal solgte billetter er lig det faktiske antal af solgte billetter.
+     */
+    @Test
+    void nulstilAutomat_ErIkkeMontør_BilletterSolgt() {
+        /* Arrange */
+        int indsætDetteBeløb = automat.getBilletpris()*3;
+        int forventetSolgteBilletter = 0;
+        int solgteBilletter;
+
+        /* Act */
+        automat.indsætPenge(indsætDetteBeløb);
+        automat.udskrivBillet();
+        automat.udskrivBillet();
+        automat.nulstil();
+        solgteBilletter = automat.getAntalBilletterSolgt();
+
+        /* Assert */
+        assertEquals(forventetSolgteBilletter,solgteBilletter);
+    }
+
+    /**
+     * Beskrivelse: Tester man ikke kan nulstille automaten som uathoriseret almen person. (Læs: ikke-montør).
+     * Forventet: Den totale omsætning er lig den reelle omsætning.
+     */
+    @Test
+    void nulstilAutomat_ErIkkeMontør_Omsætning() {
+        /* Arrange */
+        int indsætDetteBeløb = automat.getBilletpris()*3;
+        int forventetOmsætning = 0;
+        int omsætning;
+
+        /* Act */
+        automat.indsætPenge(indsætDetteBeløb);
+        automat.udskrivBillet();
+        automat.udskrivBillet();
+        automat.nulstil();
+        omsætning = automat.getTotal();
+
+        /* Assert */
+        assertEquals(forventetOmsætning,omsætning);
+    }
+
 
 }
