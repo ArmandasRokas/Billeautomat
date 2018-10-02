@@ -52,4 +52,22 @@ class BilletautomatTestAflevering {
     }
 
 
+    /** Test 3 (Forfatter: Emil)
+     * Beskrivelse: Tester om billetprisen er 10 kroner, hvilket er den informerede start billetpris.
+     * Forventet: Hvis billetprisen ikke er ændret af fx en montør, og prisen er 10 kroner, som den er oplyst til,
+     *            vil testen køre uden fejlkode.
+     */
+    @Test
+    void getBilletpris() {
+        //Arrange
+        billetautomat.setBilletpris(10);
+
+        //Act
+        int billetpris = billetautomat.getBilletpris();
+
+        //Assert
+        assertEquals(10, billetpris);
+
+    }
+
 }
