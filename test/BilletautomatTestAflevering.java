@@ -279,6 +279,26 @@ class BilletautomatTestAflevering {
         /* Assert */
         assertEquals(forventetOmsætning,omsætning);
     }
+      
+     /** Test  (Forfatter: Armandas)
+     * Beskrivelse: Der testes, at efter man er logget ind, får vi montørtilstand
+     * Forventet: montørtilstand er ændret til true efter logget ind. 
+     */
+    @Test
+    void testErMontør(){
+
+        //Arrange
+        if (billetautomat.erMontør()){
+            billetautomat.montørLogin("0000"); // log out
+        }
+
+        //Act
+
+        billetautomat.montørLogin("1234");
+
+        //Assert
+        assertTrue(billetautomat.erMontør());
+    }
 
 
 }
