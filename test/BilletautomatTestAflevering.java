@@ -69,5 +69,28 @@ class BilletautomatTestAflevering {
         assertEquals(10, billetpris);
 
     }
+      
+        /** Test 4 (Forfatter: Emil)
+     * Beskrivelse: Der testes antallet af billetter , som er blevet udskrevet passer med antallet af billetter solgt.
+     * Forventet: Her bliver der simuleret et salg af 2 billetter, så hvis metoden skal testes til at fungere,
+     *            skal antallet af billetter solgt være 2.
+     * OBS: Der testes kun for montørtilstand, da der ikke er nogen funktion til at logge ud af montørtilstand
+     *      i selve programmet, der testes.
+     */
+    @Test
+    void getAntalBilletterSolgtErMonteor() {
+        //Arrange
+        if (!billetautomat.erMontør()) {
+            billetautomat.montørLogin("1234");
+        }
+        billetautomat.setAntalBilletterSolgt(0);
+
+        //Act
+        billetautomat.udskrivBillet();
+        billetautomat.udskrivBillet();
+
+        //Assert
+        assertEquals(2, billetautomat.getAntalBilletterSolgt());
+    }
 
 }
