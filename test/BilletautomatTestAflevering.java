@@ -1,10 +1,12 @@
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BilletautomatTestAflevering {
 
       Billetautomat billetautomat = new Billetautomat();
 
-    /** Test 1
+    /** Test 1 (Forfatter: Armandas)
      * Beskrivelse: Der testes, om der kan fås retur penge fra automaten.
      *              Det kræver, at balancen ikke er lige med nul
      *              for at få retur penge.
@@ -29,7 +31,7 @@ class BilletautomatTestAflevering {
 
     }
       
-     /** Test 2
+     /** Test 2 (Forfatter: Armandas)
      * Beskrivelse: Der testes, om der kan ændres billet prisen i montør tilstand.
      * Forventet: Billetprisen er ændret til en ny pris, som er større 20kr end tidligere pris i montør tilstand
      */
