@@ -94,7 +94,7 @@ class BilletautomatTestAflevering {
         assertEquals(2, billetautomat.getAntalBilletterSolgt());
     }
     
-    /**
+    /** Test 5
      * @Author Tobias
      *
      * Beskrivelse: Tester for indsættelse af 0 kroner.
@@ -114,7 +114,7 @@ class BilletautomatTestAflevering {
         assertEquals(forventetPenge,automatsPenge);
     }
 
-    /**
+    /** Test 6
     * @Author Tobias
      * Beskrivelse: Indsaetter Integer.MAX kroner og tjekker balance.
      * Forventet: Balancen er lig med Integer.MAX kroner.
@@ -135,7 +135,7 @@ class BilletautomatTestAflevering {
     }
 
 
-    /**
+    /** Test 7
     * @Author Tobias
      * Beskrivelse: Indsaetter Integer.MIN kroner og tjekker balance.
      * Forventet: Balancen er lig med Integer.MIN kroner.
@@ -155,7 +155,7 @@ class BilletautomatTestAflevering {
         assertEquals(forventetPenge,automatsPenge);
     }
 
-    /**
+    /** Test 8
     * @Author Tobias
      * Beskrivelse: Tester montør login med korrekt password.
      * Forventet: Montøren kan logge ind.
@@ -173,7 +173,7 @@ class BilletautomatTestAflevering {
     }
 
 
-    /**
+    /** Test 9
     * @Author Tobias
      * Beskrivelse: Tester montørlogin med forkert password.
      * Forventet: Montøren kan ikke logge ind.
@@ -190,7 +190,7 @@ class BilletautomatTestAflevering {
     }
 
 
-    /**
+    /** Test 10
     * @Author Tobias
      * Beskrivelse: Tester den indloggede montør kan nulstille automaten efter der er købt billetter.
      * Forventet: Der er solgt 0 billetter.
@@ -212,8 +212,8 @@ class BilletautomatTestAflevering {
         assertEquals(forventetSolgteBilletter,automat.getAntalBilletterSolgt());
     }
 
-    /**
-    * @Author Tobias
+    /** Test 11
+     * @Author Tobias
      * Beskrivelse: Tester den indloggede montør kan nulstille automaten efter der er købt billetter.
      * Forventet: Omsætningen er 0 kr.
      */
@@ -235,8 +235,8 @@ class BilletautomatTestAflevering {
     }
 
 
-    /**
-    * @Author Tobias
+    /** Test 12
+     * @Author Tobias
      * Beskrivelse: Tester man ikke kan nulstille automaten som uathoriseret almen person. (Læs: ikke-montør).
      * Forventet: Antal solgte billetter er lig det faktiske antal af solgte billetter.
      */
@@ -258,8 +258,8 @@ class BilletautomatTestAflevering {
         assertEquals(forventetSolgteBilletter,solgteBilletter);
     }
 
-    /**
-    * @Author Tobias
+    /** Test 13
+     * @Author Tobias
      * Beskrivelse: Tester man ikke kan nulstille automaten som uathoriseret almen person. (Læs: ikke-montør).
      * Forventet: Den totale omsætning er lig den reelle omsætning.
      */
@@ -281,7 +281,7 @@ class BilletautomatTestAflevering {
         assertEquals(forventetOmsætning,omsætning);
     }
       
-     /** Test  (Forfatter: Armandas)
+     /** Test 14 (Forfatter: Armandas)
      * Beskrivelse: Der testes, at efter man er logget ind, får vi montørtilstand
      * Forventet: montørtilstand er ændret til true efter logget ind. 
      */
@@ -301,7 +301,9 @@ class BilletautomatTestAflevering {
         assertTrue(billetautomat.erMontør());
     }
     
-    /* Test # (Forfatter: Kristian)
+    /* Test 15
+    @Author Kristian
+    
     Tester om det er muligt at se total tjent som montør.
     Forventet: Det er muligt at læse hvor meget der er solgt for.
      */
@@ -315,7 +317,9 @@ class BilletautomatTestAflevering {
         assertEquals(forventetTotal, returneretTotal);
     }
 
-    /* Test # (Forfatter: Kristian)
+    /* Test 16
+    @Author Kristian
+    
     Beskrivelse: Tester om det er muligt at se total tjent når man ikke er montør.
     Forventet: Det skal ikke være muligt at se hvor meget der er solgt for.
      */
@@ -329,7 +333,9 @@ class BilletautomatTestAflevering {
         assertEquals(forventetTotal, returneretTotal);
     }
 
-    /* Test # (Forfatter: Kristian)
+    /* Test 17
+    @Author Kristian
+    
     Beskrivelse: Tester om man kan sætte antal billetter solgt som montør.
     Forventet: Antal billetter solgt skal ændres til input.
      */
@@ -344,7 +350,9 @@ class BilletautomatTestAflevering {
         assertEquals(forventetAntalSolgteBiletter, returneretAntalSolgteBilletter);
     }
 
-    /* Test # (Forfatter: Kristian)
+    /* Test 18
+    @Author Kristian
+    
     Beskrivelse: Tester om man kan sætte antal billetter solgt når man ikke er montør.
     Forventet: Antal billetter solgt skal forblive det samme.
      */
@@ -360,5 +368,4 @@ class BilletautomatTestAflevering {
 
         assertEquals(forventetAntalSolgteBiletter, returneretAntalSolgteBilletter);
     }
-
 }
