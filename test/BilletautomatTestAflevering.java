@@ -95,6 +95,7 @@ class BilletautomatTestAflevering {
     }
     
     /**
+     * @Author Tobias
      * Beskrivelse: Tester for indsættelse af 0 kroner.
      * Forventet: Automaten har 0 kroner.
      */
@@ -113,6 +114,7 @@ class BilletautomatTestAflevering {
     }
 
     /**
+    * @Author Tobias
      * Beskrivelse: Indsaetter Integer.MAX kroner og tjekker balance.
      * Forventet: Balancen er lig med Integer.MAX kroner.
      */
@@ -133,6 +135,7 @@ class BilletautomatTestAflevering {
 
 
     /**
+    * @Author Tobias
      * Beskrivelse: Indsaetter Integer.MIN kroner og tjekker balance.
      * Forventet: Balancen er lig med Integer.MIN kroner.
      */
@@ -152,6 +155,7 @@ class BilletautomatTestAflevering {
     }
 
     /**
+    * @Author Tobias
      * Beskrivelse: Tester montør login med korrekt password.
      * Forventet: Montøren kan logge ind.
      */
@@ -169,6 +173,7 @@ class BilletautomatTestAflevering {
 
 
     /**
+    * @Author Tobias
      * Beskrivelse: Tester montørlogin med forkert password.
      * Forventet: Montøren kan ikke logge ind.
      */
@@ -185,6 +190,7 @@ class BilletautomatTestAflevering {
 
 
     /**
+    * @Author Tobias
      * Beskrivelse: Tester den indloggede montør kan nulstille automaten efter der er købt billetter.
      * Forventet: Der er solgt 0 billetter.
      */
@@ -206,6 +212,7 @@ class BilletautomatTestAflevering {
     }
 
     /**
+    * @Author Tobias
      * Beskrivelse: Tester den indloggede montør kan nulstille automaten efter der er købt billetter.
      * Forventet: Omsætningen er 0 kr.
      */
@@ -228,6 +235,7 @@ class BilletautomatTestAflevering {
 
 
     /**
+    * @Author Tobias
      * Beskrivelse: Tester man ikke kan nulstille automaten som uathoriseret almen person. (Læs: ikke-montør).
      * Forventet: Antal solgte billetter er lig det faktiske antal af solgte billetter.
      */
@@ -250,6 +258,7 @@ class BilletautomatTestAflevering {
     }
 
     /**
+    * @Author Tobias
      * Beskrivelse: Tester man ikke kan nulstille automaten som uathoriseret almen person. (Læs: ikke-montør).
      * Forventet: Den totale omsætning er lig den reelle omsætning.
      */
